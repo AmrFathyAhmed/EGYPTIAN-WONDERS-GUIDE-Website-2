@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Page</title>
+    <!-- تضمين مكتبة jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <h1>Contact Page</h1>
+
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Gmail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <input type="submit" value="Send">
+    </form>
+
+    <div id="responseMessage"></div>
+    <div id="welcomeMessage"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').submit(function (event) {
+                event.preventDefault(); // منع إعادة تحميل الصفحة بعد النقر على زر الإرسال
+
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var message = $('#message').val();
+
+                // قم بتنفيذ الإجراءات اللازمة هنا، مثلاً إرسال البيانات عبر AJAX أو تنفيذ أي عمليات أخرى
+
+                // لعرض رسالة بعد الإرسال، يمكنك استخدام السطر التالي:
+                $('#responseMessage').text('The Message has sent');
+
+                // عرض رسالة الترحيب مع الاسم
+                $('#welcomeMessage').text('Hello ' + name + 'Welcome.');
+            });
+        });
+    </script>
+</body>
+
+</html>
